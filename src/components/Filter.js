@@ -1,6 +1,12 @@
 function Filter(){
     return (
-        <h1>Filter</h1>
+        <div>
+            <h1>Filter</h1>
+            <label>State Made</label>
+            <select></select>
+            <label>Kind of Beer</label>
+            <select></select>
+        </div>
     )
 }
 
