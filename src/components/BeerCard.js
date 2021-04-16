@@ -1,9 +1,11 @@
 import {useState} from "react"
+import {useHistory} from "react-router-dom"
 
 function BeerCard({beer}){
   const {id, name, image, type, manufacturer, 
     breweryState, flavorProfile, review} = beer
   const [likeCount, setLikeCount] = useState(beer.likes)
+  const history = useHistory();
 
   function handleLikesClick(){
     const likeData = {
@@ -19,9 +21,13 @@ function BeerCard({beer}){
     .then(r => r.json())
     .then(updatedBeer => setLikeCount(updatedBeer.likes))
   }
+
+  function handleReviewClick(){
+    history.push(`/beerDetail/${id}`)
+  }
    
-  const reviewArr = review.map(reviewObj => 
-    <p>{reviewObj.content}</p>)
+  // if (review) const reviewArr = review.map(reviewObj => 
+  //   <p>{reviewObj.content}</p>)
   
   return (
        <div>
@@ -29,10 +35,10 @@ function BeerCard({beer}){
            <img src={image} alt={name}></img>
            <p>Type of Beer: {type}</p>
            <p>Brewery: {manufacturer} State: {breweryState}</p>
-           <p>{flavorProfile}</p>
+           <p>Flavor Profile: {flavorProfile}</p>
            <p>{likeCount} Likes</p>
            <button onClick={handleLikesClick}>👍 This 🍺</button>
-           <p>Reviews: {reviewArr}</p>
+           <button onClick={handleReviewClick}>Read Reviews</button>
        </div>
     )
 }

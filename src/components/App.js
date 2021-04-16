@@ -4,6 +4,7 @@ import BeerPage from './BeerPage';
 import Header from './Header';
 import {Switch, Route} from "react-router-dom"
 import Home from "./Home"
+import BeerDetail from "./BeerDetail";
 
 function App() {
   const [beerArr, setBeerArr] = useState([])
@@ -59,6 +60,9 @@ function App() {
             onCategoryChange={onCategoryChange}
             onSearch={handleSearch}
             searchBeer={searchBeer}/>
+        </Route>
+        <Route exact path="/beerDetail/:id">
+          <BeerDetail />
         </Route>
       </Switch>
     </div>

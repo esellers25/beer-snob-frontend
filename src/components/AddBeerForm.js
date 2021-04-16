@@ -8,7 +8,7 @@ function AddBeerForm({onAddBeer}){
   const [typeOfBeer, setTypeOfBeer] = useState("")
   const [breweryState, setBreweryState] = useState("")
   const [flavorProfile, setFlavorProfile] = useState([])
-  const history = useHistory()
+  const history = useHistory();
 
   function whatUserNamed(e){
     setBeerName(e.target.value)
@@ -53,10 +53,10 @@ function AddBeerForm({onAddBeer}){
         body: JSON.stringify(newBeerData)
     })
       .then(res => res.json())
-      .then(newBeerData => (
-          onAddBeer(newBeerData)
-          history.push("/beerPage")
-        )
+      .then(newBeerData => {
+          // onAddBeer(newBeerData)
+          // history.push("/beerPage")
+        })
   }
 
   return (
