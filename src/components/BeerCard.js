@@ -2,7 +2,7 @@ import {useState} from "react"
 
 function BeerCard({beer}){
   const {id, name, image, type, manufacturer, 
-    breweryState, flavorProfile, review, likes} = beer
+    breweryState, flavorProfile, review} = beer
   const [likeCount, setLikeCount] = useState(beer.likes)
 
   function handleLikesClick(){
