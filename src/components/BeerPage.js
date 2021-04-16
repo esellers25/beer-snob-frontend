@@ -2,12 +2,14 @@ import BeerList from "./BeerList";
 import Filter from "./Filter";
 import Search from "./Search";
 
-function BeerPage({beerArr}){
+function BeerPage({beerArr, onCategoryChange, searchBeer, onSearch}){
     return (
         <div>
             <h1>BEER Page</h1>
-            <Filter />
-            <Search />
+            <Filter onCategoryChange={onCategoryChange}/>
+            <Search 
+            searchBeer={searchBeer}
+            onSearch={onSearch}/>
             <BeerList
             beerArr={beerArr} />
         </div>

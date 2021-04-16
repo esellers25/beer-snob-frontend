@@ -1,9 +1,10 @@
-function Search(){
+function Search({onSearch, searchBeer}){
+    
+    
     return (
         <div>
             <h1>Search</h1>
-            <input type="text" placeholder="search for a beer"></input>
-            <button>Find me a beer!</button>
+            <input type="text" id="search" placeholder="Search for a beer" value={searchBeer} onChange={e => onSearch(e.target.value)}></input>
         </div>
         
     )
