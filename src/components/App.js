@@ -2,6 +2,8 @@ import {useState, useEffect} from "react"
 import AddBeerForm from './AddBeerForm';
 import BeerPage from './BeerPage';
 import Header from './Header';
+import {Switch, Route} from "react-router-dom"
+import Home from "./Home"
 
 function App() {
   const [beerArr, setBeerArr] = useState([])
@@ -37,17 +39,29 @@ function App() {
     return beer.name.toLowerCase().includes(searchBeer.toLowerCase())
   })
 
+  function onAddBeer(newBeer){
+    setBeerArr([...beerArr, newBeer])
+  }
 
   return (
-    <>
+    <div>
       <Header />
-      <AddBeerForm />
-      <BeerPage 
-      beerArr={searchedBeersArr}
-      onCategoryChange={onCategoryChange}
-      onSearch={handleSearch}
-      searchBeer={searchBeer}/>
-    </>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/addBeer">
+          <AddBeerForm onAddBeer={onAddBeer}/>
+        </Route>
+        <Route exact path="/beerPage">
+          <BeerPage 
+            beerArr={searchedBeersArr}
+            onCategoryChange={onCategoryChange}
+            onSearch={handleSearch}
+            searchBeer={searchBeer}/>
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
