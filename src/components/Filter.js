@@ -1,5 +1,3 @@
-
-
 function Filter({onCategoryChange}){
     
     function handleCategoryChange(e){

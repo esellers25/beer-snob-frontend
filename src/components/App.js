@@ -15,7 +15,7 @@ function App() {
     fetch('http://localhost:3000/beers?_embed=review')
       .then(res => res.json())
       .then(beerData => setBeerArr(beerData))
-  }, [])
+  }, [beerArr])
 
   function onCategoryChange(selectedCategory){
     setSelectedCategory(selectedCategory)
@@ -36,8 +36,12 @@ function App() {
     setSearchBeer(e)
   }
 
-  const searchedBeersArr = beersToDisplay.filter((beer) => {
-    return beer.name.toLowerCase().includes(searchBeer.toLowerCase())
+  const searchedBeerArr = beersToDisplay.filter((beer) => {
+    if (beer.name.toLowerCase().includes(searchBeer.toLowerCase())
+    || beer.type.toLowerCase().includes(searchBeer.toLowerCase())
+    || beer.manufacturer.toLowerCase().includes(searchBeer.toLowerCase())
+    || beer.flavorProfile.toLowerCase().includes(searchBeer.toLowerCase()))
+    return true
   })
 
   function onAddBeer(newBeer){
@@ -56,7 +60,7 @@ function App() {
         </Route>
         <Route exact path="/beerPage">
           <BeerPage 
-            beerArr={searchedBeersArr}
+            beerArr={searchedBeerArr}
             onCategoryChange={onCategoryChange}
             onSearch={handleSearch}
             searchBeer={searchBeer}/>
