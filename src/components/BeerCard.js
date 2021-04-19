@@ -30,16 +30,29 @@ function BeerCard({beer}){
   //   <p>{reviewObj.content}</p>)
   
   return (
-       <div>
-           <h3>{name}</h3>
-           <img src={image} alt={name}></img>
-           <p>Type of Beer: {type}</p>
-           <p>Brewery: {manufacturer} State: {breweryState}</p>
-           <p>Flavor Profile: {flavorProfile}</p>
-           <p>{likeCount} Likes</p>
-           <button onClick={handleLikesClick}>👍 This 🍺</button>
-           <button onClick={handleReviewClick}>Read Reviews</button>
-       </div>
+    
+    <div class="card">
+      <div class="centered image">
+        <img className="beer-pic" src={image}></img>
+        </div>
+      <div class="content">
+        <div class="header">{name}</div>
+        <div class="meta">
+          <a>{manufacturer}</a>
+        </div>
+        <div class="description">
+          Flavor Notes: {flavorProfile}
+        </div>
+      </div>
+      <div class="extra content">
+        <span class="right floated">
+          <button onClick={handleReviewClick}>Read Reviews</button>
+        </span>
+        <span class="user icon">
+          <button onClick={handleLikesClick}>{likeCount} Likes 👍 🍺</button>
+        </span>
+        </div>
+      </div>
     )
 }
 
