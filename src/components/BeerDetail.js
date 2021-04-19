@@ -8,8 +8,6 @@ function BeerDetail(){
     const [hasReview, setHasReview] = useState([])
     const [userReview, setUserReview] = useState("")
     
-
-
     useEffect(() => {
         fetch(`http://localhost:3000/beers/${id}?_embed=review`)
         .then(res => res.json())
@@ -31,6 +29,10 @@ function BeerDetail(){
         setBeer({...beer, review:[...beer.review, newReview]})
     }
 
+    function onAddLike(newLikes){
+        setBeer({...beer, likes: newLikes})
+    }
+
     function handleReviewSubmit(e){
         e.preventDefault(); 
         const reviewData = {
@@ -48,22 +50,20 @@ function BeerDetail(){
         .then(newReview => onAddReview(newReview))
     }
 
-    // const [likeCount, setLikeCount] = useState(likes)
-
-    // function handleLikesClick(){
-    //     const likeData = {
-    //       likes: likeCount + 1
-    //     }
-    //     fetch(`http://localhost:3000/beers/${id}`, {
-    //       method: "PATCH",
-    //       headers: {
-    //         "Content-Type": "application/json"
-    //       },
-    //       body: JSON.stringify(likeData)
-    //     })
-    //     .then(r => r.json())
-    //     .then(updatedBeer => setLikeCount(updatedBeer.likes))
-    //   }
+    function handleLikesClick(){
+        const likeData = {
+          likes: beer.likes + 1
+        }
+        fetch(`http://localhost:3000/beers/${id}`, {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(likeData)
+        })
+        .then(r => r.json())
+        .then(updatedBeer => onAddLike(updatedBeer.likes))
+      }
 
     return(
         <div>
@@ -73,7 +73,7 @@ function BeerDetail(){
            <p>Brewery: {manufacturer} State: {breweryState}</p>
            <p>{flavorProfile}</p>
            <p>{likes} Likes</p>
-           {/* <button onClick={handleLikesClick}>👍 This 🍺</button> */}
+           <button onClick={handleLikesClick}>👍 This 🍺</button>
            {reviewArray}
            <h2>Add a Review</h2>
            <form onSubmit={handleReviewSubmit}>

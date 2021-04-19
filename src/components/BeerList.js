@@ -6,7 +6,7 @@ function BeerList({beerArr}){
         <BeerCard key={beerObj.id} beer={beerObj}/>)
     return (
         <div>
-            <h1>BEER LIST</h1>
+            <h1>Beer List</h1>
             {beerArray}
         </div>
     )
