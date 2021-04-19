@@ -5,7 +5,11 @@ function BeerDetail(){
     const [beer, setBeer] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const {id} = useParams();
+    const [hasReview, setHasReview] = useState([])
+    const [userReview, setUserReview] = useState("")
     
+
+
     useEffect(() => {
         fetch(`http://localhost:3000/beers/${id}?_embed=review`)
         .then(res => res.json())
@@ -16,8 +20,50 @@ function BeerDetail(){
     }, [id]);
     
     if (!isLoaded) return <h3>Loading...</h3>
+    
+    const {name, image, type, breweryState, manufacturer, flavorProfile, likes, review} = beer
 
-    const {name, image, type, breweryState, manufacturer, flavorProfile} = beer
+    const reviewArray = review.map(reviewObj => 
+        <p key={reviewObj.id}>{reviewObj.content}</p>
+    )
+    
+    function onAddReview(newReview){
+        setBeer({...beer, review:[...beer.review, newReview]})
+    }
+
+    function handleReviewSubmit(e){
+        e.preventDefault(); 
+        const reviewData = {
+            content: userReview,
+            beerId: parseInt(id)
+        }
+        fetch("http://localhost:3000/review", {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json"
+        },
+        body:JSON.stringify(reviewData)
+    })
+        .then(r => r.json())
+        .then(newReview => onAddReview(newReview))
+    }
+
+    // const [likeCount, setLikeCount] = useState(likes)
+
+    // function handleLikesClick(){
+    //     const likeData = {
+    //       likes: likeCount + 1
+    //     }
+    //     fetch(`http://localhost:3000/beers/${id}`, {
+    //       method: "PATCH",
+    //       headers: {
+    //         "Content-Type": "application/json"
+    //       },
+    //       body: JSON.stringify(likeData)
+    //     })
+    //     .then(r => r.json())
+    //     .then(updatedBeer => setLikeCount(updatedBeer.likes))
+    //   }
 
     return(
         <div>
@@ -26,9 +72,15 @@ function BeerDetail(){
            <p>Type of Beer: {type}</p>
            <p>Brewery: {manufacturer} State: {breweryState}</p>
            <p>{flavorProfile}</p>
-           {/* <p>{likeCount} Likes</p>
-           <button onClick={}>👍 This 🍺</button>
-           <button onClick={}>Read Reviews</button> */}
+           <p>{likes} Likes</p>
+           {/* <button onClick={handleLikesClick}>👍 This 🍺</button> */}
+           {reviewArray}
+           <h2>Add a Review</h2>
+           <form onSubmit={handleReviewSubmit}>
+               <label>Write your comment</label>
+               <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
+               <button>Submit</button>
+           </form>
        </div>
     )
 }
