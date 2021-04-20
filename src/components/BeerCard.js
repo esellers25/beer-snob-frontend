@@ -35,23 +35,21 @@ function BeerCard({beer}){
         <img className="beer-pic" src={image} alt={name}></img>
         </div>
       <div class="content">
-        <div class="header">{name}</div>
+        <div className="cardHeader">{name}</div>
         <div class="meta">
-          <a href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
+          <a className="cardLink" href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
         </div>
-        <div class="description">
-          Made in: {breweryState} {"\n"}
-          Type: {type} {"\n"}
-          Flavor Notes: {flavorProfile} 
+        <div className="description">
+          <p>Made in: {breweryState}</p> {"\n"}
+          <p>Type: {type}</p> {"\n"}
+          <p>Flavor Notes: {flavorProfile}</p> 
         </div>
       </div>
       <div class="extra content">
-        <span class="right floated">
-          <button onClick={handleReviewClick}>Read Reviews</button>
-        </span>
-        <span class="user icon">
-          <button onClick={handleLikesClick}>{likeCount} Likes 👍 🍺</button>
-        </span>
+        <div class="ui tiny buttons">
+          <button class="ui tiny button" onClick={handleReviewClick}>Read Reviews</button>
+          <button class="ui tiny button" onClick={handleLikesClick}>{likeCount} Likes 🍺</button>
+        </div>
       </div>
     </div>
   )

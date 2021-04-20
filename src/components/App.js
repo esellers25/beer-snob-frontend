@@ -20,10 +20,9 @@ const GlobalStyle= createGlobalStyle`
   a {
     font-family: 'Bebas Neue', cursive;
     font-size: 2em;
-    padding-left: 15px;
     padding-right: 15px
   }
-  p {
+  p.welcome {
     font-family: 'Crimson Text', serif;
     font-size: 2em
   }
