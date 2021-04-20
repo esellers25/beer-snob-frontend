@@ -1,10 +1,10 @@
 import {useState, useEffect} from "react"
-import AddBeerForm from './AddBeerForm';
-import BeerPage from './BeerPage';
-import Header from './Header';
+import AddBeerForm from './AddBeerForm'
+import BeerPage from './BeerPage'
+import Header from './Header'
 import {Switch, Route} from "react-router-dom"
 import Home from "./Home"
-import BeerDetail from "./BeerDetail";
+import BeerDetail from "./BeerDetail"
 
 function App() {
   const [beerArr, setBeerArr] = useState([])
@@ -70,7 +70,7 @@ function App() {
         </Route>
       </Switch>
     </div>
-  );
+  )
 }
 
 export default App;

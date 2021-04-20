@@ -3,7 +3,7 @@ import {useHistory} from "react-router-dom"
 
 function BeerCard({beer}){
   const {id, name, image, type, manufacturer, 
-    breweryState, flavorProfile, review} = beer
+    breweryState, flavorProfile, link, review} = beer
   const [likeCount, setLikeCount] = useState(beer.likes)
   const history = useHistory();
 
@@ -30,18 +30,19 @@ function BeerCard({beer}){
   //   <p>{reviewObj.content}</p>)
   
   return (
-    
     <div class="card">
       <div class="centered image">
-        <img className="beer-pic" src={image}></img>
+        <img className="beer-pic" src={image} alt={name}></img>
         </div>
       <div class="content">
         <div class="header">{name}</div>
         <div class="meta">
-          <a>{manufacturer}</a>
+          <a href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
         </div>
         <div class="description">
-          Flavor Notes: {flavorProfile}
+          Made in: {breweryState} {"\n"}
+          Type: {type} {"\n"}
+          Flavor Notes: {flavorProfile} 
         </div>
       </div>
       <div class="extra content">
@@ -51,9 +52,9 @@ function BeerCard({beer}){
         <span class="user icon">
           <button onClick={handleLikesClick}>{likeCount} Likes 👍 🍺</button>
         </span>
-        </div>
       </div>
-    )
+    </div>
+  )
 }
 
 export default BeerCard;
