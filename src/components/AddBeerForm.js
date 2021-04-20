@@ -71,34 +71,43 @@ function AddBeerForm({onAddBeer}){
   return (
     <div>
       <h2>Add a Beer</h2>
-      <form onSubmit={handleSubmit}>
-        <input value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></input>
-        <input value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></input>
-        <input value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></input>
-        <input value={link} onChange={userLink} type="url" placeholder="Brewer URL"></input>
-        <select value={typeOfBeer} onChange={typeSelected}name="type-filter">
-          <option value="All">Select Type</option>
-          <option value="Brown Ale">Brown Ale</option>
-          <option value="Double IPA">Double IPA</option>
-          <option value="IPA">IPA</option>
-          <option value="Lager">Lager</option>
-          <option value="Pale Ale">Pale Ale</option>
-          <option value="Pilsner">Pilsner</option>
-          <option value="Porter">Porter</option>
-          <option value="Saison">Saison</option>
-          <option value="Sour">Sour</option>
-          <option value="Stout">Stout</option>
-        </select>
-        <select value={breweryState} onChange={stateSelected} name="state-filter" >
-          <option value="All">Select a State</option>
-          <option value="MI">Michigan</option>
-          <option value="MO">Missouri</option>
-          <option value="NY">New York</option>
-          <option value="VT">Vermont</option>
-        </select>
-        <input value={flavorProfile} onChange={userFlavorProfile} type="text" placeholder="Flavor Notes"></input>
-        <button>Submit new beer</button>
-      </form>
+      <section>
+        <form className="form" onSubmit={handleSubmit}>
+          <label htmlFor="username" className="label">Beer Name</label>
+          <input className="input" id="username" value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></input>
+          <label htmlFor="userimage" className="label">Beer Picture</label>
+          <input className="input" id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></input>
+          <label htmlFor="usermanufacturer" className="label">Brewer Name</label>
+          <input className="input" id="usermanufacturer" value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></input>
+          <label htmlFor="userbreweryURL" className="label">Brewer Website</label>
+          <input className="input" id="userbreweryURL" value={link} onChange={userLink} type="url" placeholder="Brewer URL"></input>
+          <label htmlFor="usertype" className="label">Type of Beer</label>
+          <select className="input" id="usertype" value={typeOfBeer} onChange={typeSelected}name="type-filter">
+            <option value="All">Select Type</option>
+            <option value="Brown Ale">Brown Ale</option>
+            <option value="Double IPA">Double IPA</option>
+            <option value="IPA">IPA</option>
+            <option value="Lager">Lager</option>
+            <option value="Pale Ale">Pale Ale</option>
+            <option value="Pilsner">Pilsner</option>
+            <option value="Porter">Porter</option>
+            <option value="Saison">Saison</option>
+            <option value="Sour">Sour</option>
+            <option value="Stout">Stout</option>
+          </select>
+          <label htmlFor="userbrewerystate" className="label">Brewery State</label>
+          <select className="input" id="userbrewerystate" value={breweryState} onChange={stateSelected} name="state-filter" >
+            <option value="All">Select a State</option>
+            <option value="MI">Michigan</option>
+            <option value="MO">Missouri</option>
+            <option value="NY">New York</option>
+            <option value="VT">Vermont</option>
+          </select>
+          <label htmlFor="userflavorprofile" className="label">Flavor Profile</label>
+          <input className="input" id="userflavorprofile" value={flavorProfile} onChange={userFlavorProfile} type="text" placeholder="Flavor Notes"></input>
+          <button class="ui button">Submit new beer</button>
+        </form>
+      </section>
     </div>
   )
 }
