@@ -67,7 +67,7 @@ function AddBeerForm({onAddBeer}){
 
   return (
     <div>
-      <h1>Add a Beer</h1>
+      <h2>Add a Beer</h2>
       <form onSubmit={handleSubmit}>
         <input value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></input>
         <input value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></input>

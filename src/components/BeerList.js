@@ -5,7 +5,7 @@ function BeerList({beerArr}){
     <BeerCard key={beerObj.id} beer={beerObj}/>)
       return (
         <div class="ui link cards">
-          <h1>Beer List</h1>
+          <h2>Beer List</h2>
           {beerArray}
         </div>
       )

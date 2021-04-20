@@ -1,7 +1,7 @@
 function Search({onSearch, searchBeer}){
   return (
-    <div>
-      <h1>Search</h1>
+    <div className="arrayModifier">
+      <h2>Search</h2>
         <input 
           type="text" 
           id="search" 

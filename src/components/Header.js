@@ -8,7 +8,7 @@ function Header(){
       history.push("/")
   }
   return (
-    <div>
+    <div className="header">
       <h1 onClick={handleHomeClick}>Beer Snob</h1>
       <nav>
         <NavLink className="button" to="/beerPage">View and Search Beers</NavLink>

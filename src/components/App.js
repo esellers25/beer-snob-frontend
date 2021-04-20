@@ -5,6 +5,33 @@ import Header from './Header'
 import {Switch, Route} from "react-router-dom"
 import Home from "./Home"
 import BeerDetail from "./BeerDetail"
+import { createGlobalStyle } from "styled-components"
+
+
+const GlobalStyle= createGlobalStyle`
+  h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 8em;
+  }
+  h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4em;
+  }
+  a {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+    padding-left: 15px;
+    padding-right: 15px
+  }
+  p {
+    font-family: 'Crimson Text', serif;
+    font-size: 2em
+  }
+  body{
+    background-color: white
+    
+  }
+`
 
 function App() {
   const [beerArr, setBeerArr] = useState([])
@@ -50,6 +77,7 @@ function App() {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/">

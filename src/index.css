@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 0 10%;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -15,4 +15,28 @@ code {
 .beer-pic {
   width: auto;
   height: 350px;
+}
+
+div.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+div#filterSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  align-content: flex-start;
+}
+
+div.arrayModifier {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 15px;
+  padding-right: 15px
 }

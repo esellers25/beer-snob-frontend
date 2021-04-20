@@ -5,8 +5,8 @@ function Filter({onCategoryChange}){
   }
     
   return (
-    <div>
-      <h1>Filter</h1>
+    <div className="arrayModifier">
+      <h2>Filter</h2>
       <select name="state-filter" onChange={handleCategoryChange}>
         <option value="All">Filter by State</option>
         <option value="MI">Michigan</option>
