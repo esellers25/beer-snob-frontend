@@ -1,7 +1,11 @@
-function Filter({onCategoryChange}){
+function Filter({onStateChange, onTypeChange}){
     
-  function handleCategoryChange(e){
-    onCategoryChange(e.target.value)
+  function handleStateChange(e){
+    onStateChange(e.target.value)
+  }
+
+  function handleTypeChange(e){
+    onTypeChange(e.target.value)
   }
     
   return (
@@ -10,14 +14,14 @@ function Filter({onCategoryChange}){
         <h2>Filter</h2>
       </div>
       <div >
-        <select class="ui selection dropdown" name="state-filter" onChange={handleCategoryChange}>
+        <select class="ui selection dropdown" name="state-filter" onChange={handleStateChange}>
           <option value="All">Filter by State</option>
           <option value="MI">Michigan</option>
           <option value="MO">Missouri</option>
           <option value="NY">New York</option>
           <option value="VT">Vermont</option>
         </select>
-        <select class="ui selection dropdown" name="type-filter" onChange={handleCategoryChange}>
+        <select class="ui selection dropdown" name="type-filter" onChange={handleTypeChange}>
           <option value="All">Filter by Type</option>
           <option value="Brown Ale">Brown Ale</option>
           <option value="Double IPA">Double IPA</option>

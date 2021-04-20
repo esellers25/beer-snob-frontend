@@ -47,7 +47,7 @@ function BeerCard({beer}){
       </div>
       <div class="extra content">
         <div class="ui tiny buttons">
-          <button class="ui tiny button" onClick={handleReviewClick}>Read Reviews</button>
+          <button class="ui tiny button" onClick={handleReviewClick}>Details</button>
           <button class="ui tiny button" onClick={handleLikesClick}>{likeCount} Likes 🍺</button>
         </div>
       </div>

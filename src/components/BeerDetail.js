@@ -66,6 +66,7 @@ function BeerDetail(){
         onAddLike(updatedBeer.likes))
   }
 
+
   return(
     <div>
       <h3>{name}</h3>
@@ -77,7 +78,7 @@ function BeerDetail(){
       {reviewArray}
       <h2>Add a Review</h2>
       <form onSubmit={handleReviewSubmit}>
-        <label>Write your comment</label>
+        <label>{beer.review.length > 0 ? "Add your review" : "Be the first to review!"}</label>
         <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
         <button>Submit</button>
       </form>
