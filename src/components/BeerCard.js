@@ -31,8 +31,8 @@ function BeerCard({beer}){
   
   return (
     <div class="card">
-      <div class="centered image">
-        <img className="beer-pic" src={image} alt={name}></img>
+      <div class="ui small centered image">
+        <img onClick={handleReviewClick} class="ui image" src={image} alt={name}></img>
         </div>
       <div class="content">
         <div className="cardHeader">{name}</div>

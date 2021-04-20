@@ -11,6 +11,10 @@ function AddBeerForm({onAddBeer}){
   const [link, setLink] = useState("")
   const history = useHistory();
 
+  // function onAddBeer(newBeer){
+  //   setBeerArr([...beerArr, newBeer])
+  // }
+
   function whatUserNamed(e){
     setBeerName(e.target.value)
   }
@@ -60,7 +64,6 @@ function AddBeerForm({onAddBeer}){
     })
       .then(res => res.json())
       .then(newBeerData => {
-          onAddBeer(newBeerData)
           history.push("/beerPage")
         })
   }

@@ -1,7 +1,10 @@
 function Search({onSearch, searchBeer}){
   return (
-    <div className="arrayModifier">
-      <h2>Search</h2>
+    <div id="search" className="arrayModifier">
+      <div>
+        <h2>Search</h2>
+      </div>
+      <div class= "ui input" >
         <input 
           type="text" 
           id="search" 
@@ -9,7 +12,9 @@ function Search({onSearch, searchBeer}){
           value={searchBeer} 
           onChange={e => onSearch(e.target.value)}
         ></input>
+        <i class="search icon"></i>
       </div>
+    </div>
   )
 }
 
