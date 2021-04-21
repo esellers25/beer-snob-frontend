@@ -44,6 +44,7 @@ div.arrayModifier {
 div.cardHeader {
   font-family: 'Bebas Neue', cursive;
   font-size: 28px;
+  color: #F7c331
 }
 
 .cardLink {
@@ -97,12 +98,40 @@ div.cardHeader {
   background: white;
 }
 
-.modal {
-    position: fixed; /* Stay in place */
-    margin: 0 auto;
-    z-index: 1; /* Sit on top */
+.ui.card>.content, .ui.cards>.card>.content {
+  background-color: #eeeeee
+  ;
+}
 
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
+.ui.card .meta>a:not(.ui), .ui.cards>.card .meta>a:not(.ui) {
+  color: #1D2731
+}
+.ui.card>.extra, .ui.cards>.card>.extra {
+  background-color: white;
+}
+
+p.modaltext {
+  font-family: 'Crimson Text', serif;
+  font-size: 25px;
+  margin: 0 0 12px;
+}
+
+a.modallink {
+  font-family: 'Bebas Neue';
+  font-size: 35px;
+  margin: 0 0 12px
+}
+
+div.actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+h2.modalheader {
+  text-align: center;
+}
+
+.ui.modal {
+  width: 740px;
 }

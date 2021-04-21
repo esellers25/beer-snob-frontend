@@ -7,7 +7,6 @@ function BeerDetail({id}){
   const [isLoaded, setIsLoaded] = useState(false)
   // const {id} = useParams();
   const [userReview, setUserReview] = useState("")
-
   const [open, setOpen] = useState(false)
     
   useEffect(() => {
@@ -24,7 +23,7 @@ function BeerDetail({id}){
   const {name, image, type, breweryState, manufacturer, link, flavorProfile, likes, review} = beer
 
   const reviewArray = review.map(reviewObj => 
-    <p key={reviewObj.id}>{reviewObj.content}</p>
+    <p className="modaltext" key={reviewObj.id}>{reviewObj.content}</p>
   )
     
   function onAddReview(newReview){
@@ -72,22 +71,23 @@ function BeerDetail({id}){
   return(
     <Modal onClose={() => setOpen(false)}
     onOpen={() => setOpen(true)}
-    open={open}
-    trigger={<Button>Show Modal</Button>}>
-      <h2>{name}</h2>
+    open={open}>
+      <h2 className="modalheader">{name}</h2>
       <Modal.Content image>
         <Image size='medium' src={image} wrapped alt={name}/>
         <Modal.Description>
-          <a className="cardLink" href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
-          <p>Type of Beer: {type}</p>
-          <p>Brewery: {manufacturer} State: {breweryState}</p>
-          <p>Flavor Profile: {flavorProfile}</p>
+          <a className="modallink" href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
+          <p className="modaltext">Type of Beer: {type}</p>
+          <p className="modaltext">State: {breweryState}</p>
+          <p className="modaltext">Flavor Profile: {flavorProfile}</p>
+          <button onClick={handleLikesClick}>{likes} Likes 🍺</button>
           <h3>Reviews</h3>
-          {reviewArray}
+          <div>
+            {reviewArray}
+          </div>
         </Modal.Description>
       </Modal.Content>
       <Modal.Actions>
-      <button onClick={handleLikesClick}>{likes} Likes 🍺</button>
       <form onSubmit={handleReviewSubmit}>
         <label>{beer.review.length > 0 ? <h3>Add your review</h3> : <h3>Be the first to review!</h3>}</label>
         <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
