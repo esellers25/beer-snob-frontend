@@ -1,12 +1,14 @@
 import {useState, useEffect} from "react";
-import {useParams} from "react-router-dom"
+import {Modal, Image, Button} from "semantic-ui-react"
+// import {useParams} from "react-router-dom"
 
-function BeerDetail(){
+function BeerDetail({id}){
   const [beer, setBeer] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
-  const {id} = useParams();
-  const [hasReview, setHasReview] = useState([])
+  // const {id} = useParams();
   const [userReview, setUserReview] = useState("")
+
+  const [open, setOpen] = useState(false)
     
   useEffect(() => {
     fetch(`http://localhost:3000/beers/${id}?_embed=review`)
@@ -19,7 +21,7 @@ function BeerDetail(){
     
   if (!isLoaded) return <h3>Loading...</h3>
     
-  const {name, image, type, breweryState, manufacturer, flavorProfile, likes, review} = beer
+  const {name, image, type, breweryState, manufacturer, link, flavorProfile, likes, review} = beer
 
   const reviewArray = review.map(reviewObj => 
     <p key={reviewObj.id}>{reviewObj.content}</p>
@@ -68,21 +70,31 @@ function BeerDetail(){
 
 
   return(
-    <div>
-      <h3>{name}</h3>
-      <img src={image} alt={name}></img>
-      <p>Type of Beer: {type}</p>
-      <p>Brewery: {manufacturer} State: {breweryState}</p>
-      <p>Flavor Profile: {flavorProfile}</p>
+    <Modal onClose={() => setOpen(false)}
+    onOpen={() => setOpen(true)}
+    open={open}
+    trigger={<Button>Show Modal</Button>}>
+      <h2>{name}</h2>
+      <Modal.Content image>
+        <Image size='medium' src={image} wrapped alt={name}/>
+        <Modal.Description>
+          <a className="cardLink" href={link} target="_blank" rel="noreferrer">{manufacturer}</a>
+          <p>Type of Beer: {type}</p>
+          <p>Brewery: {manufacturer} State: {breweryState}</p>
+          <p>Flavor Profile: {flavorProfile}</p>
+          <h3>Reviews</h3>
+          {reviewArray}
+        </Modal.Description>
+      </Modal.Content>
+      <Modal.Actions>
       <button onClick={handleLikesClick}>{likes} Likes 🍺</button>
-      {reviewArray}
-      <h2>Add a Review</h2>
       <form onSubmit={handleReviewSubmit}>
-        <label>{beer.review.length > 0 ? "Add your review" : "Be the first to review!"}</label>
+        <label>{beer.review.length > 0 ? <h3>Add your review</h3> : <h3>Be the first to review!</h3>}</label>
         <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
         <button>Submit</button>
       </form>
-    </div>
+      </Modal.Actions>
+    </Modal>
   )
 }
 

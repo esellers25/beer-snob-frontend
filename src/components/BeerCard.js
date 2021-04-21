@@ -1,10 +1,12 @@
 import {useState} from "react"
 import {useHistory} from "react-router-dom"
+import BeerDetail from "./BeerDetail"
 
 function BeerCard({beer}){
   const {id, name, image, type, manufacturer, 
     breweryState, flavorProfile, link, review} = beer
   const [likeCount, setLikeCount] = useState(beer.likes)
+  const [showDetail, setShowDetail] = useState(false)
   const history = useHistory();
 
   function handleLikesClick(){
@@ -25,14 +27,19 @@ function BeerCard({beer}){
   function handleReviewClick(){
     history.push(`/beerDetail/${id}`)
   }
+
+  function handlePopUp(){
+    setShowDetail(!showDetail)
+  }
    
   // if (review) const reviewArr = review.map(reviewObj => 
   //   <p>{reviewObj.content}</p>)
   
   return (
+    <>
     <div class="card">
       <div class="ui small centered image">
-        <img onClick={handleReviewClick} src={image} alt={name}></img>
+        <img onClick={handlePopUp} src={image} alt={name}></img>
         </div>
       <div class="content">
         <div className="cardHeader">{name}</div>
@@ -51,7 +58,11 @@ function BeerCard({beer}){
           <button class="ui tiny button" onClick={handleLikesClick}>{likeCount} Likes 🍺</button>
         </div>
       </div>
-    </div>
+     </div>
+     <div>
+      {showDetail ? <BeerDetail id={id}/> : null}
+      </div>
+     </>
   )
 }
 

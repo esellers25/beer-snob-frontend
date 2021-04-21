@@ -50,9 +50,9 @@ function App() {
         <Route exact path="/beerPage">
           <BeerPage />
         </Route>
-        <Route exact path="/beerDetail/:id">
+        {/* <Route exact path="/beerDetail/:id">
           <BeerDetail />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   )

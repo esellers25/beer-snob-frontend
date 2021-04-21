@@ -9,6 +9,7 @@ function BeerPage(){
   const [selectedType, setSelectedType] = useState("All")
   const [selectedState, setSelectedState] = useState("All")
   const [searchBeer, setSearchBeer] = useState("")
+  
 
   useEffect(() => {
     fetch('http://localhost:3000/beers?_embed=review')
