@@ -32,7 +32,7 @@ function BeerCard({beer}){
   return (
     <div class="card">
       <div class="ui small centered image">
-        <img onClick={handleReviewClick} class="ui image" src={image} alt={name}></img>
+        <img onClick={handleReviewClick} src={image} alt={name}></img>
         </div>
       <div class="content">
         <div className="cardHeader">{name}</div>

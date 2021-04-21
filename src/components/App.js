@@ -29,6 +29,10 @@ const GlobalStyle= createGlobalStyle`
   body{
     background-color: white
   }
+  h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2em;
+  }
 `
 
 function App() {

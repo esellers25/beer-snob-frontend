@@ -84,3 +84,15 @@ div.cardHeader {
   font-family: 'Bebas Neue', cursive;
   font-size: 25px;
 }
+
+.ui.card>.image>img, .ui.cards>.card>.image>img {
+  height: 180px;
+  width: auto;
+  margin: auto;
+  background-position: center;
+  background-size: contain;
+}
+
+.ui.card>.image, .ui.cards>.card>.image {
+  background: white;
+}

@@ -11,7 +11,7 @@ function Filter({onStateChange, onTypeChange}){
   return (
     <div id="filter" className="arrayModifier">
       <div>
-        <h2>Filter</h2>
+        <h3>Filter</h3>
       </div>
       <div >
         <select class="ui selection dropdown" name="state-filter" onChange={handleStateChange}>

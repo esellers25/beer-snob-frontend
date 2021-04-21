@@ -2,6 +2,7 @@ import BeerList from "./BeerList";
 import Filter from "./Filter";
 import Search from "./Search";
 import {useState, useEffect} from "react"
+import Sort from "./Sort";
 
 function BeerPage(){
   const [beerArr, setBeerArr] = useState([])
@@ -21,6 +22,20 @@ function BeerPage(){
 
   function onStateChange(selectedState) {
     setSelectedState(selectedState)
+  }
+
+  function sortByName(){
+    const beersNameArr = beerArr.sort((a, b) =>{
+      return a.name.localeCompare(b.name)
+    })
+    return setBeerArr([...beersNameArr])
+  }
+
+  function sortByLikes(){
+    const beersLikesArr = beerArr.sort((a,b) => {
+      return b.likes - a.likes
+    })
+    return setBeerArr([...beersLikesArr])
   }
 
   const beersByState = beerArr.filter((beer) => {
@@ -53,12 +68,15 @@ function BeerPage(){
   return (
     <div>
       <div id="filterSearch">
-      <Filter onTypeChange={onTypeChange}
-      onStateChange={onStateChange}/>
       <Search 
         searchBeer={searchBeer}
         onSearch={handleSearch}/>
-        </div>
+      <Filter onTypeChange={onTypeChange}
+      onStateChange={onStateChange}/>
+      <Sort 
+      sortByLikes={sortByLikes}
+      sortByName={sortByName}/>
+      </div>
       <BeerList
         beerArr={searchedBeerArr} />
     </div>
