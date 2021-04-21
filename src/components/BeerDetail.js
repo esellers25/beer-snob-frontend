@@ -1,11 +1,9 @@
 import {useState, useEffect} from "react";
 import {Modal, Image, Button} from "semantic-ui-react"
-// import {useParams} from "react-router-dom"
 
 function BeerDetail({id}){
   const [beer, setBeer] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
-  // const {id} = useParams();
   const [userReview, setUserReview] = useState("")
   const [open, setOpen] = useState(false)
     
@@ -71,7 +69,7 @@ function BeerDetail({id}){
   return(
     <Modal onClose={() => setOpen(false)}
     onOpen={() => setOpen(true)}
-    open={open}>
+    open={open} trigger={<Button class="ui tiny button">Details</Button>}>
       <h2 className="modalheader">{name}</h2>
       <Modal.Content image>
         <Image size='medium' src={image} wrapped alt={name}/>

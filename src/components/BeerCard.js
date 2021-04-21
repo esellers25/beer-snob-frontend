@@ -26,16 +26,10 @@ function BeerCard({beer}){
     .then(updatedBeer => setLikeCount(updatedBeer.likes))
   }
 
-  function handleReviewClick(){
-    history.push(`/beerDetail/${id}`)
-  }
-
   function handlePopUp(){
     setShowDetail(!showDetail)
   }
-   
-  // if (review) const reviewArr = review.map(reviewObj => 
-  //   <p>{reviewObj.content}</p>)
+
   
   return (
     <>
@@ -51,14 +45,11 @@ function BeerCard({beer}){
       </div>
       <div class="extra content">
         <div class="ui tiny buttons">
-          <button class="ui tiny button" trigger={<Button>Details</Button>}>Details</button>
+          <BeerDetail id={id}/>
           <button class="ui tiny button" onClick={handleLikesClick}>{likeCount} Likes 🍺</button>
         </div>
       </div>
      </div>
-     <div>
-      <BeerDetail id={id}/>
-      </div>
      </>
   )
 }
