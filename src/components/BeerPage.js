@@ -61,9 +61,9 @@ function BeerPage(){
   const searchedBeerArr = beersByTypeAndState.filter((beer) => {
     if (beer.name.toLowerCase().includes(searchBeer.toLowerCase())){
       return true
-    } if (beer.type.toLowerCase().includes(searchBeer.toLowerCase())){
+    } else if (beer.type.toLowerCase().includes(searchBeer.toLowerCase())){
       return true
-    } if (beer.manufacturer.toLowerCase().includes(searchBeer.toLowerCase())){
+    } else if (beer.manufacturer.toLowerCase().includes(searchBeer.toLowerCase())){
       return true
     } else {return (beer.flavorProfile.toLowerCase().includes(searchBeer.toLowerCase()))}
   })

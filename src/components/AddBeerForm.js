@@ -74,11 +74,11 @@ function AddBeerForm(){
           <label htmlFor="username" className="label">Beer Name</label>
           <Input className="input" id="username" value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></Input>
           <label htmlFor="userimage" className="label">Beer Picture</label>
-          <Input className="input" id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></Input>
+          <Input className="input" label='http://' id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></Input>
           <label htmlFor="usermanufacturer" className="label">Brewer Name</label>
           <Input className="input" id="usermanufacturer" value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></Input>
           <label htmlFor="userbreweryURL" className="label">Brewer Website</label>
-          <Input className="input" id="userbreweryURL" value={link} onChange={userLink} type="url" placeholder="Brewer URL"></Input>
+          <Input className="input" label='http://' id="userbreweryURL" value={link} onChange={userLink} type="url" placeholder="Brewer URL"></Input>
           <label htmlFor="usertype" className="label">Type of Beer</label>
           <select className="input" id="usertype" value={typeOfBeer} onChange={typeSelected}name="type-filter">
             <option value="All">Select Type</option>
@@ -107,11 +107,14 @@ function AddBeerForm(){
             <option value="DE">Delaware</option>
             <option value="DC">District of Columbia</option>
             <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
             <option value="ID">Idaho</option>
             <option value="IL">Illinois</option>
             <option value="IN">Indiana</option>
             <option value="IA">Iowa</option>
             <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
             <option value="LA">Lousiana</option>
             <option value="ME">Maine</option>
             <option value="MD">Maryland</option>

@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import {Modal, Image, Input, Button} from "semantic-ui-react"
 
-function BeerDetail({id}){
+function BeerDetail({id, likeCount, onLikeClick}){
   const [beer, setBeer] = useState(null)
   const [isLoaded, setIsLoaded] = useState(false)
   const [userReview, setUserReview] = useState("")
@@ -18,7 +18,7 @@ function BeerDetail({id}){
     
   if (!isLoaded) return <h3>Loading...</h3>
     
-  const {name, image, type, breweryState, manufacturer, link, flavorProfile, likes, review} = beer
+  const {name, image, type, breweryState, manufacturer, link, flavorProfile, review} = beer
 
   const reviewArray = review.map(reviewObj => 
     <p className="reviews" key={reviewObj.id}>{reviewObj.content}</p>
@@ -26,10 +26,6 @@ function BeerDetail({id}){
     
   function onAddReview(newReview){
       setBeer({...beer, review:[...beer.review, newReview]})
-  }
-
-  function onAddLike(newLikes){
-      setBeer({...beer, likes: newLikes})
   }
 
   function handleReviewSubmit(e){
@@ -52,23 +48,6 @@ function BeerDetail({id}){
       })
   }
 
-  function handleLikesClick(){
-    const likeData = {
-      likes: beer.likes + 1
-    }
-    fetch(`http://localhost:3000/beers/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(likeData)
-    })
-      .then(r => r.json())
-      .then(updatedBeer => 
-        onAddLike(updatedBeer.likes))
-  }
-
-
   return(
     <Modal onClose={() => setOpen(false)}
     onOpen={() => setOpen(true)}
@@ -81,7 +60,7 @@ function BeerDetail({id}){
           <p className="modaltext">Type of Beer: {type}</p>
           <p className="modaltext">State: {breweryState}</p>
           <p className="modaltext">Flavor Profile: {flavorProfile}</p>
-          <button class="ui small button" onClick={handleLikesClick}>{likes} Likes</button>
+          <button class="ui small button" onClick={onLikeClick}>{likeCount} Likes</button>
           {beer.review.length > 0 ? <h3>Reviews</h3> : null}
           <div>
             {reviewArray}

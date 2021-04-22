@@ -43,7 +43,7 @@ function BeerCard({beer, onAddToFridge}){
         </div>
       </div>
       <div class="extra content">
-          <BeerDetail id={id}/>
+          <BeerDetail id={id} likeCount={likeCount} onLikeClick={handleLikesClick}/>
           <button class="ui small button" onClick={handleLikesClick}>{likeCount} Likes</button>
           <button class="ui small button" onClick={addBeerClick}>Add to My Fridge</button>
       </div>

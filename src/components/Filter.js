@@ -7,6 +7,11 @@ function Filter({onStateChange, onTypeChange}){
   function handleTypeChange(e){
     onTypeChange(e.target.value)
   }
+
+  function resetFilters(){
+    onStateChange("All")
+    onTypeChange("All")
+  }
     
   return (
     <div className="arrayModifier">
@@ -27,11 +32,14 @@ function Filter({onStateChange, onTypeChange}){
           <option value="DE">Delaware</option>
           <option value="DC">District of Columbia</option>
           <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
           <option value="ID">Idaho</option>
           <option value="IL">Illinois</option>
           <option value="IN">Indiana</option>
           <option value="IA">Iowa</option>
           <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
           <option value="LA">Lousiana</option>
           <option value="ME">Maine</option>
           <option value="MD">Maryland</option>
@@ -81,6 +89,7 @@ function Filter({onStateChange, onTypeChange}){
           <option value="Sour">Sour</option>
           <option value="Stout">Stout</option>
         </select>
+        <button class="ui small button" onClick={resetFilters}>Reset</button>
       </div>
     </div>
   )
