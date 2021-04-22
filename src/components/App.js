@@ -12,12 +12,16 @@ const GlobalStyle= createGlobalStyle`
   h1 {
     font-family: 'Bebas Neue', cursive;
     font-size: 8em;
-    color: #1D2731
+    color: #1D2731;
+    margin-bottom: 0;
+  }
+  h1:hover {
+    color: #1e70bf;
   }
   h2 {
     font-family: 'Bebas Neue', cursive;
     font-size: 4em;
-    color: #f7882F
+    color: #f7882F;
   }
   a {
     font-family: 'Bebas Neue', cursive;
@@ -28,7 +32,8 @@ const GlobalStyle= createGlobalStyle`
   p.welcome {
     font-family: 'Crimson Text', serif;
     font-size: 2em;
-    color: #1d2731
+    color: #1d2731;
+    text-align: center;
   }
  
   h3 {

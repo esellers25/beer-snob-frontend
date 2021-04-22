@@ -9,7 +9,7 @@ function Filter({onStateChange, onTypeChange}){
   }
     
   return (
-    <div id="filter" className="arrayModifier">
+    <div className="arrayModifier">
       <div>
         <h3>Filter</h3>
       </div>

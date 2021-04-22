@@ -1,6 +1,6 @@
 function Home(){
   return (
-    <div> 
+    <div id="welcomeMessage"> 
       {"\n"}   
       <h2>Welcome!</h2>
       <p className="welcome">Let’s face it: not all beers are created equal. A mass distributed brand 

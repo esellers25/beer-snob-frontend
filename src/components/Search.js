@@ -1,6 +1,6 @@
 function Search({onSearch, searchBeer}){
   return (
-    <div id="search" className="arrayModifier">
+    <div className="arrayModifier">
       <div>
         <h3>Search</h3>
       </div>
