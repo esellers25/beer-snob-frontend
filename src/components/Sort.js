@@ -2,11 +2,11 @@ function Sort({sortByName, sortByLikes}){
   
     
     return (
-        <div>
+        <div className="arrayModifier">
             <div>
             <h3>SORT</h3>
             </div>
-            
+            <div>
             <label>
                 <input type="radio" name="sort" onChange={sortByName}
                 />
@@ -17,6 +17,7 @@ function Sort({sortByName, sortByLikes}){
                 />
                 Most Liked
             </label>
+            </div>
         </div>
     )
 }
