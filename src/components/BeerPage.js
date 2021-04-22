@@ -4,6 +4,16 @@ import Search from "./Search";
 import {useState, useEffect} from "react"
 import Sort from "./Sort";
 import MyFridge from "./MyFridge";
+import {
+  Checkbox,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  Menu,
+  Segment,
+  Sidebar,
+} from 'semantic-ui-react'
 
 function BeerPage(){
   const [beerArr, setBeerArr] = useState([])
@@ -11,6 +21,7 @@ function BeerPage(){
   const [selectedState, setSelectedState] = useState("All")
   const [searchBeer, setSearchBeer] = useState("")
   const [myFridge, setMyFridge] = useState([])
+  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     fetch('http://localhost:3000/beers?_embed=review')
@@ -70,29 +81,54 @@ function BeerPage(){
   function handleAddToFridge(beerToAdd){
     const newFridgeBeer = beerArr.find((beer) => beer.id === beerToAdd.id)
     setMyFridge([...myFridge, newFridgeBeer])  
-    console.log(myFridge)
   }
 
+  function handleDeleteFromFridge(id){
+      const updatedFridgeArr = myFridge.filter(beer => 
+        beer.id !== id)
+        setMyFridge(updatedFridgeArr)
+  }
   
   return (
-    <div>
-      <div>
-        <MyFridge />
-      </div>
-      <div id="filterSearch" class="pusher">
-      <Search 
-        searchBeer={searchBeer}
-        onSearch={handleSearch}/>
-      <Filter onTypeChange={onTypeChange}
-      onStateChange={onStateChange}/>
-      <Sort 
-      sortByLikes={sortByLikes}
-      sortByName={sortByName}/>
-      </div>
-      <BeerList
-        beerArr={searchedBeerArr}
-        onAddToFridge={handleAddToFridge} />
-    </div>
+      <Grid columns={1}>
+      <Grid.Column>
+        <h3 onClick={e => setVisible(!visible)}>My Fridge</h3>
+      </Grid.Column>
+      <Grid.Column>
+        <Sidebar.Pushable as={Segment}>
+          <Sidebar
+            as={Menu}
+            animation='overlay'
+            icon='labeled'
+            inverted
+            onHide={() => setVisible(false)}
+            vertical
+            visible={visible}
+            width='thin'
+          >
+            <MyFridge myFridge={myFridge} onDeleteBeer={handleDeleteFromFridge}/>
+          </Sidebar>
+
+          <Sidebar.Pusher>
+            <Segment basic>
+            <div id="filterSearch" class="pusher">
+              <Search 
+                searchBeer={searchBeer}
+                onSearch={handleSearch}/>
+              <Filter onTypeChange={onTypeChange}
+                onStateChange={onStateChange}/>
+              <Sort 
+                sortByLikes={sortByLikes}
+                sortByName={sortByName}/>
+            </div>
+            <BeerList
+              beerArr={searchedBeerArr}
+              onAddToFridge={handleAddToFridge} />
+              </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
+      </Grid.Column>
+    </Grid>
   )
 }
 

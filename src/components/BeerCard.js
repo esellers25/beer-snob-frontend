@@ -30,8 +30,8 @@ function BeerCard({beer, onAddToFridge}){
     setShowDetail(!showDetail)
   }
 
-  function addBeerClick(selectedBeer){
-    onAddToFridge(selectedBeer)
+  function addBeerClick(){
+    onAddToFridge(beer)
   }
 
   

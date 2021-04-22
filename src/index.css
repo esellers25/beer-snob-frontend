@@ -103,6 +103,18 @@ div.cardHeader {
   ;
 }
 
+div.ui.basic.segment {
+  background-color: #DCC7AA;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+}
+
+.ui.buttons {
+  display: block;
+  align-items: center;
+}
+
 .ui.card .meta>a:not(.ui), .ui.cards>.card .meta>a:not(.ui) {
   color: #1D2731
 }

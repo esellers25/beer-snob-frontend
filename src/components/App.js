@@ -30,9 +30,7 @@ const GlobalStyle= createGlobalStyle`
     font-size: 2em;
     color: #1d2731
   }
-  body{
-    background-color: white
-  }
+ 
   h3 {
     font-family: 'Bebas Neue', cursive;
     font-size: 2em;
