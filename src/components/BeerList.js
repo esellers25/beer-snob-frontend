@@ -9,7 +9,10 @@ function BeerList({beerArr, onAddToFridge}){
             <h2>Beer List</h2>
           </div>
           <div class="ui link four cards">
-            {beerArray.length > 0 ? beerArray : <p className="welcome">We don't have that beer. Add it to our collection!</p>}
+            {beerArray.length > 0 ? beerArray : 
+              <div id="noBeersDiv">
+                <p className="welcome">We don't have that beer. Add it to our collection!</p>
+              </div>}
           </div>
         </div>
       )

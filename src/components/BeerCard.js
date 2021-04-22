@@ -1,15 +1,10 @@
 import {useState} from "react"
-import {useHistory} from "react-router-dom"
 import BeerDetail from "./BeerDetail"
-import { Modal, Button } from "semantic-ui-react"
 
 function BeerCard({beer, onAddToFridge}){
-  const {id, name, image, type, manufacturer, 
-    breweryState, flavorProfile, link, review} = beer
+  const {id, name, image, manufacturer, link} = beer
   const [likeCount, setLikeCount] = useState(beer.likes)
   const [showDetail, setShowDetail] = useState(false)
-  const history = useHistory();
-  
 
   function handleLikesClick(){
     const likeData = {
@@ -48,11 +43,9 @@ function BeerCard({beer, onAddToFridge}){
         </div>
       </div>
       <div class="extra content">
-        <div class="ui tiny buttons">
           <BeerDetail id={id}/>
-          <button class="ui tiny button" onClick={handleLikesClick}>{likeCount} Likes 🍺</button>
-          <button class="ui tiny button" onClick={addBeerClick}>Add to My Fridge</button>
-        </div>
+          <button class="ui small button" onClick={handleLikesClick}>{likeCount} Likes</button>
+          <button class="ui small button" onClick={addBeerClick}>Add to My Fridge</button>
       </div>
      </div>
      </>

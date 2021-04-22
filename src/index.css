@@ -75,6 +75,8 @@ div.cardHeader {
 .label {
   font-family: 'Bebas Neue', cursive;
   font-size: 25px;
+  color:#f7882f;
+  padding-top: 20px;
 }
 
 .ui.card>.image>img, .ui.cards>.card>.image>img {
@@ -101,11 +103,15 @@ div.ui.basic.segment {
   border: none;
 }
 
-.ui.buttons {
-  display: block;
+div.extra.content {
+  display: flex;
+  flex-direction: row;
   align-items: center;
 }
 
+.ui.card>.extra, .ui.cards>.card>.extra{
+  overflow: hidden;
+}
 .ui.card .meta>a:not(.ui), .ui.cards>.card .meta>a:not(.ui) {
   color: #1D2731
 }
@@ -153,4 +159,47 @@ div.ui.input {
   margin: 0;
   display: flex;
   align-items: center;
+}
+
+#fridgelink {
+  cursor: pointer;
+}
+
+#fridgelink:hover {
+  color: #1D2731
+}
+
+#idForm{
+  padding-top: 20px;
+}
+
+.ui.input>input {
+  width: 250px;
+}
+
+label {
+  font-family: "Crimson Text", serif;
+  color: #1D2731;
+  font-size: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+form.form {
+  background-color: white;
+  border-radius: .28571429rem;
+}
+
+.ui.thin.left.sidebar, .ui.thin.right.sidebar {
+  width: 291px;
+}
+
+#sortLabelDiv {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin: 0 auto;
+}
+
+#noBeersDiv {
+  text-align: center;
 }

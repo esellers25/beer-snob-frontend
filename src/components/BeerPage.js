@@ -1,19 +1,10 @@
-import BeerList from "./BeerList";
-import Filter from "./Filter";
-import Search from "./Search";
-import {useState, useEffect} from "react"
-import Sort from "./Sort";
 import MyFridge from "./MyFridge";
-import {
-  Checkbox,
-  Grid,
-  Header,
-  Icon,
-  Image,
-  Menu,
-  Segment,
-  Sidebar,
-} from 'semantic-ui-react'
+import BeerList from "./BeerList";
+import Search from "./Search";
+import Filter from "./Filter";
+import Sort from "./Sort";
+import {useState, useEffect} from "react"
+import { Grid, Menu, Segment, Sidebar } from 'semantic-ui-react'
 
 function BeerPage(){
   const [beerArr, setBeerArr] = useState([])
@@ -88,11 +79,13 @@ function BeerPage(){
         beer.id !== id)
         setMyFridge(updatedFridgeArr)
   }
+
+
   
   return (
       <Grid columns={1}>
       <Grid.Column>
-        <h3 onClick={e => setVisible(!visible)}>My Fridge</h3>
+        <h2 id="fridgelink" onClick={e => setVisible(!visible)}>My Fridge</h2>
       </Grid.Column>
       <Grid.Column>
         <Sidebar.Pushable as={Segment}>

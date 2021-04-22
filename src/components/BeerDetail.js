@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {Modal, Image, Button} from "semantic-ui-react"
+import {Modal, Image, Input, Button} from "semantic-ui-react"
 
 function BeerDetail({id}){
   const [beer, setBeer] = useState(null)
@@ -72,7 +72,7 @@ function BeerDetail({id}){
   return(
     <Modal onClose={() => setOpen(false)}
     onOpen={() => setOpen(true)}
-    open={open} trigger={<Button class="ui tiny button">Details</Button>}>
+    open={open} trigger={<Button class="ui small button">More Details</Button>}>
       <h2 className="modalheader">{name}</h2>
       <Modal.Content image>
         <Image size='medium' src={image} wrapped alt={name}/>
@@ -81,16 +81,18 @@ function BeerDetail({id}){
           <p className="modaltext">Type of Beer: {type}</p>
           <p className="modaltext">State: {breweryState}</p>
           <p className="modaltext">Flavor Profile: {flavorProfile}</p>
-          <button onClick={handleLikesClick}>{likes} Likes 🍺</button>
+          <button class="ui small button" onClick={handleLikesClick}>{likes} Likes</button>
           {beer.review.length > 0 ? <h3>Reviews</h3> : null}
           <div>
             {reviewArray}
           </div>
+          <div id="idForm">
           <form onSubmit={handleReviewSubmit}>
             <label>{beer.review.length > 0 ? <h3>Add your review</h3> : <h3>Be the first to review!</h3>}</label>
-            <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
-            <button>Submit</button>
+            <Input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></Input>
+            <button class="ui small button">Submit</button>
           </form>
+          </div>
         </Modal.Description>
       </Modal.Content>
     </Modal>

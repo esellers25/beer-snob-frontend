@@ -1,7 +1,8 @@
 import {useState} from "react"
 import {useHistory} from "react-router-dom"
+import { Input } from 'semantic-ui-react'
 
-function AddBeerForm({onAddBeer}){
+function AddBeerForm(){
   const [beerName, setBeerName] = useState("")
   const [image, setImage] = useState("")
   const [manufacturer, setManufacturer] = useState("")
@@ -10,10 +11,6 @@ function AddBeerForm({onAddBeer}){
   const [flavorProfile, setFlavorProfile] = useState("")
   const [link, setLink] = useState("")
   const history = useHistory();
-
-  // function onAddBeer(newBeer){
-  //   setBeerArr([...beerArr, newBeer])
-  // }
 
   function whatUserNamed(e){
     setBeerName(e.target.value)
@@ -71,16 +68,17 @@ function AddBeerForm({onAddBeer}){
   return (
     <div>
       <h2>Add a Beer</h2>
+      <p className="welcome">Don't see a beer you love? Please add it to our collection so others can discover it!</p>
       <section>
         <form className="form" onSubmit={handleSubmit}>
           <label htmlFor="username" className="label">Beer Name</label>
-          <input className="input" id="username" value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></input>
+          <Input className="input" id="username" value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></Input>
           <label htmlFor="userimage" className="label">Beer Picture</label>
-          <input className="input" id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></input>
+          <Input className="input" id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></Input>
           <label htmlFor="usermanufacturer" className="label">Brewer Name</label>
-          <input className="input" id="usermanufacturer" value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></input>
+          <Input className="input" id="usermanufacturer" value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></Input>
           <label htmlFor="userbreweryURL" className="label">Brewer Website</label>
-          <input className="input" id="userbreweryURL" value={link} onChange={userLink} type="url" placeholder="Brewer URL"></input>
+          <Input className="input" id="userbreweryURL" value={link} onChange={userLink} type="url" placeholder="Brewer URL"></Input>
           <label htmlFor="usertype" className="label">Type of Beer</label>
           <select className="input" id="usertype" value={typeOfBeer} onChange={typeSelected}name="type-filter">
             <option value="All">Select Type</option>
@@ -104,7 +102,7 @@ function AddBeerForm({onAddBeer}){
             <option value="VT">Vermont</option>
           </select>
           <label htmlFor="userflavorprofile" className="label">Flavor Profile</label>
-          <input className="input" id="userflavorprofile" value={flavorProfile} onChange={userFlavorProfile} type="text" placeholder="Flavor Notes"></input>
+          <Input className="input" id="userflavorprofile" value={flavorProfile} onChange={userFlavorProfile} type="text" placeholder="Flavor Notes"></Input>
           <button class="ui button">Submit new beer</button>
         </form>
       </section>
