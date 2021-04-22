@@ -1,8 +1,8 @@
 import BeerCard from "./BeerCard";
 
-function BeerList({beerArr}){
+function BeerList({beerArr, onAddToFridge}){
   const beerArray = beerArr.map(beerObj => 
-    <BeerCard key={beerObj.id} beer={beerObj}/>)
+    <BeerCard key={beerObj.id} beer={beerObj} onAddToFridge={onAddToFridge}/>)
       return (
         <div>
           <div>

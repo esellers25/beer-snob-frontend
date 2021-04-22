@@ -135,3 +135,9 @@ h2.modalheader {
 .ui.modal {
   width: 740px;
 }
+
+p.reviews {
+  font-family: 'Crimson Text', serif;
+  font-size: 15px;
+  margin: 0 0 12px;
+}

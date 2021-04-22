@@ -3,13 +3,14 @@ import Filter from "./Filter";
 import Search from "./Search";
 import {useState, useEffect} from "react"
 import Sort from "./Sort";
+import MyFridge from "./MyFridge";
 
 function BeerPage(){
   const [beerArr, setBeerArr] = useState([])
   const [selectedType, setSelectedType] = useState("All")
   const [selectedState, setSelectedState] = useState("All")
   const [searchBeer, setSearchBeer] = useState("")
-  
+  const [myFridge, setMyFridge] = useState([])
 
   useEffect(() => {
     fetch('http://localhost:3000/beers?_embed=review')
@@ -66,9 +67,19 @@ function BeerPage(){
     return true
   })
 
+  function handleAddToFridge(beerToAdd){
+    const newFridgeBeer = beerArr.find((beer) => beer.id === beerToAdd.id)
+    setMyFridge([...myFridge, newFridgeBeer])  
+    console.log(myFridge)
+  }
+
+  
   return (
     <div>
-      <div id="filterSearch">
+      <div>
+        <MyFridge />
+      </div>
+      <div id="filterSearch" class="pusher">
       <Search 
         searchBeer={searchBeer}
         onSearch={handleSearch}/>
@@ -79,7 +90,8 @@ function BeerPage(){
       sortByName={sortByName}/>
       </div>
       <BeerList
-        beerArr={searchedBeerArr} />
+        beerArr={searchedBeerArr}
+        onAddToFridge={handleAddToFridge} />
     </div>
   )
 }

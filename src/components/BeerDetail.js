@@ -21,7 +21,7 @@ function BeerDetail({id}){
   const {name, image, type, breweryState, manufacturer, link, flavorProfile, likes, review} = beer
 
   const reviewArray = review.map(reviewObj => 
-    <p className="modaltext" key={reviewObj.id}>{reviewObj.content}</p>
+    <p className="reviews" key={reviewObj.id}>{reviewObj.content}</p>
   )
     
   function onAddReview(newReview){
@@ -46,7 +46,10 @@ function BeerDetail({id}){
       body:JSON.stringify(reviewData)
     })
       .then(r => r.json())
-      .then(newReview => onAddReview(newReview))
+      .then(newReview => {
+        onAddReview(newReview)
+        setUserReview("")
+      })
   }
 
   function handleLikesClick(){
@@ -79,19 +82,17 @@ function BeerDetail({id}){
           <p className="modaltext">State: {breweryState}</p>
           <p className="modaltext">Flavor Profile: {flavorProfile}</p>
           <button onClick={handleLikesClick}>{likes} Likes 🍺</button>
-          <h3>Reviews</h3>
+          {beer.review.length > 0 ? <h3>Reviews</h3> : null}
           <div>
             {reviewArray}
           </div>
+          <form onSubmit={handleReviewSubmit}>
+            <label>{beer.review.length > 0 ? <h3>Add your review</h3> : <h3>Be the first to review!</h3>}</label>
+            <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
+            <button>Submit</button>
+          </form>
         </Modal.Description>
       </Modal.Content>
-      <Modal.Actions>
-      <form onSubmit={handleReviewSubmit}>
-        <label>{beer.review.length > 0 ? <h3>Add your review</h3> : <h3>Be the first to review!</h3>}</label>
-        <input type="textarea" value={userReview} onChange={e => setUserReview(e.target.value)}></input>
-        <button>Submit</button>
-      </form>
-      </Modal.Actions>
     </Modal>
   )
 }
