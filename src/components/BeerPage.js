@@ -45,16 +45,13 @@ function BeerPage(){
   const beersByState = beerArr.filter((beer) => {
     if (selectedState === "All") { 
       return true 
-    } if (selectedState === beer.breweryState) 
-      return beer.breweryState
+    } else { return selectedState === beer.breweryState}
   })
   
   const beersByTypeAndState = beersByState.filter((beer) => {
     if (selectedType === "All") {
       return true
-    }
-    if (selectedType === beer.type) 
-       return beer.type
+    } else { return selectedType === beer.type }
   })
 
   function handleSearch(e){
@@ -62,11 +59,13 @@ function BeerPage(){
   }
 
   const searchedBeerArr = beersByTypeAndState.filter((beer) => {
-    if (beer.name.toLowerCase().includes(searchBeer.toLowerCase())
-    || beer.type.toLowerCase().includes(searchBeer.toLowerCase())
-    || beer.manufacturer.toLowerCase().includes(searchBeer.toLowerCase())
-    || beer.flavorProfile.toLowerCase().includes(searchBeer.toLowerCase()))
-    return true
+    if (beer.name.toLowerCase().includes(searchBeer.toLowerCase())){
+      return true
+    } if (beer.type.toLowerCase().includes(searchBeer.toLowerCase())){
+      return true
+    } if (beer.manufacturer.toLowerCase().includes(searchBeer.toLowerCase())){
+      return true
+    } else {return (beer.flavorProfile.toLowerCase().includes(searchBeer.toLowerCase()))}
   })
 
   function handleAddToFridge(beerToAdd){
