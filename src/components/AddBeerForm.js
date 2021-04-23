@@ -52,7 +52,7 @@ function AddBeerForm(){
         flavorProfile: flavorProfile,
         likes: 0
     }
-    fetch('http://localhost:3000/beers', {
+    fetch('https://beer-snob-phase-2.herokuapp.com/beers', {
         method: "POST",
         headers: {
             "content-type": "application/json"

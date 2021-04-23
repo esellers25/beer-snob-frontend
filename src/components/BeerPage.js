@@ -15,7 +15,7 @@ function BeerPage(){
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
-    fetch('http://localhost:3000/beers?_embed=review')
+    fetch('https://beer-snob-phase-2.herokuapp.com/beers?_embed=review')
       .then(res => res.json())
       .then(beerData => setBeerArr(beerData))
   }, [])

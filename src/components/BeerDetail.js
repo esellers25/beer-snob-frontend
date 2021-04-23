@@ -8,7 +8,7 @@ function BeerDetail({id, likeCount, onLikeClick}){
   const [open, setOpen] = useState(false)
     
   useEffect(() => {
-    fetch(`http://localhost:3000/beers/${id}?_embed=review`)
+    fetch(`https://beer-snob-phase-2.herokuapp.com/beers/${id}?_embed=review`)
       .then(res => res.json())
       .then(beerData => {
         setBeer(beerData)
@@ -34,7 +34,7 @@ function BeerDetail({id, likeCount, onLikeClick}){
       content: userReview,
       beerId: parseInt(id)
     }
-    fetch("http://localhost:3000/review", {
+    fetch("https://beer-snob-phase-2.herokuapp.com/review", {
       method: "POST",
       headers: {
         "Content-type": "application/json"

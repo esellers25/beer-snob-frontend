@@ -10,7 +10,7 @@ function BeerCard({beer, onAddToFridge}){
     const likeData = {
       likes: likeCount + 1
     }
-    fetch(`http://localhost:3000/beers/${id}`, {
+    fetch(`https://beer-snob-phase-2.herokuapp.com/beers/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json"
