@@ -2,7 +2,7 @@ function Home(){
   return (
     <div id="welcomeMessage"> 
       {"\n"}   
-      <h2>Welcome!</h2>
+      <h2>Welcome</h2>
       <p className="welcome">Let’s face it: not all beers are created equal. A mass distributed brand 
           name doesn’t put in the same care into their batches as your local craft 
           brewery does. You know what you like, and there’s no shame in that.  

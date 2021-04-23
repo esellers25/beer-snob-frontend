@@ -25,6 +25,13 @@ div.header {
   border-bottom: 1px solid;
 }
 
+p.welcome {
+  font-family: 'Crimson Text', serif;
+  font-size: 2em;
+  color: #1d2731;
+  text-align: center;
+}
+
 div#filterSearch {
   display: flex;
   flex-direction: row;
@@ -48,9 +55,13 @@ div.cardHeader {
   color: #F7c331
 }
 
-.cardLink {
-  font-family: 'Crimson Text', serif, bold;
+a.cardLink {
+  font-family: 'Crimson Text', serif;
   font-size: 15px;
+}
+
+a.cardLink:hover {
+  color: #1e70bf;
 }
 
 .description {
@@ -202,4 +213,13 @@ form.form {
 
 #noBeersDiv {
   text-align: center;
+}
+
+#dropdownDiv {
+  display: flex;
+  align-content: center;
+}
+
+.ui.cards a.card:hover, .ui.link.card:hover, .ui.link.cards .card:hover, a.ui.card:hover {
+  cursor: default;
 }

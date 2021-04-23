@@ -31,13 +31,6 @@ const GlobalStyle= createGlobalStyle`
     padding-right: 15px;
     color: #1D2731
   }
-  
-  p.welcome {
-    font-family: 'Crimson Text', serif;
-    font-size: 2em;
-    color: #1d2731;
-    text-align: center;
-  }
  
   h3 {
     font-family: 'Bebas Neue', cursive;

@@ -18,10 +18,9 @@ function Filter({onStateChange, onTypeChange}){
       <div>
         <h3>Filter</h3>
       </div>
-      <div>
+      <div id="dropdownDiv">
         <select class="ui selection dropdown" name="state-filter" onChange={handleStateChange}>
           <option value="All">Filter by State</option>
-          <option value="All">All States</option>
           <option value="AL">Alabama</option>
           <option value="AK">Alaska</option>
           <option value="AZ">Arizona</option>
@@ -77,7 +76,6 @@ function Filter({onStateChange, onTypeChange}){
         </select>
         <select class="ui selection dropdown" name="type-filter" onChange={handleTypeChange}>
           <option value="All">Filter by Type</option>
-          <option value="All">All Types</option>
           <option value="Brown Ale">Brown Ale</option>
           <option value="Double IPA">Double IPA</option>
           <option value="IPA">IPA</option>

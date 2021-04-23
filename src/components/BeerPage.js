@@ -84,7 +84,7 @@ function BeerPage(){
   return (
       <Grid columns={1}>
       <Grid.Column>
-        <h2 id="fridgelink" onClick={e => setVisible(!visible)}>My Fridge</h2>
+      <h2 id="fridgelink" onClick={e => setVisible(!visible)}>My Fridge</h2>
       </Grid.Column>
       <Grid.Column>
         <Sidebar.Pushable as={Segment}>

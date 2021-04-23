@@ -74,7 +74,7 @@ function AddBeerForm(){
           <label htmlFor="username" className="label">Beer Name</label>
           <Input className="input" id="username" value={beerName} onChange={whatUserNamed} type="text" placeholder="Beer name"></Input>
           <label htmlFor="userimage" className="label">Beer Picture</label>
-          <Input className="input" label='http://' id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image"></Input>
+          <Input className="input" label='http://' id="userimage" value={image} onChange={whatUserImaged} type="url" placeholder="Beer Image URL"></Input>
           <label htmlFor="usermanufacturer" className="label">Brewer Name</label>
           <Input className="input" id="usermanufacturer" value={manufacturer} onChange={whatUserManu} type="text" placeholder="Brewer Name"></Input>
           <label htmlFor="userbreweryURL" className="label">Brewer Website</label>

@@ -31,7 +31,6 @@ function BeerCard({beer, onAddToFridge}){
 
   
   return (
-    <>
     <div class="card">
       <div class="ui small centered image">
         <img onClick={handlePopUp} src={image} alt={name}></img>
@@ -48,7 +47,6 @@ function BeerCard({beer, onAddToFridge}){
           <button class="ui small button" onClick={addBeerClick}>Add to My Fridge</button>
       </div>
      </div>
-     </>
   )
 }
 
